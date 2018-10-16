@@ -2,20 +2,41 @@
 #include <stdlib.h>
 #include "linkedlist.h"
 
+struct node * insert_front(struct node * current, char art, char son){
+  struct node * new = (struct node *) malloc(sizeof(struct node));
+  new->artist = art;
+	new->song = son;
+  new->next = current;
+  return new;
+}
+
+struct node * insert(struct node * current, char art, char son){
+	
+}
+
 void print_list(struct node * current){
   if(!current)
     return;
   while(current){
-    printf("%d \n", current->i);
+    printf("%s: %s | ", current->artist, current->song);
     current = current->next;
   }
 }
 
-struct node * insert_front(struct node * current, int add){
-  struct node * new = (struct node *) malloc(sizeof(struct node));
-  new->i = add;
-  new->next = current;
-  return new;
+struct node * find(struct node * current, char art, char son){
+
+}
+
+struct node * find_first(struct node * current, char art, char son){
+
+}
+
+struct node * ran(struct node * current){
+
+}
+
+struct node * rem(struct node * current, char art, char son){
+
 }
 
 struct node * free_list(struct node * current){
