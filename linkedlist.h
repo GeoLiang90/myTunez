@@ -1,6 +1,9 @@
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
 struct node { 
-	char name[100];
 	char artist[100];
+	char song[100];
   	struct song_node *next;
 };
 
@@ -19,3 +22,5 @@ struct node * ran(struct node * current);
 struct node * rem(struct node * current, char art, char son);
 
 struct node * free_list(struct node * current);
+
+#endif
