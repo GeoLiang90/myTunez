@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "linkedlist.h"
 
 struct node * insert_front(struct node * current, char art, char son){
@@ -32,7 +33,8 @@ struct node * find_first(struct node * current, char art, char son){
 }
 
 struct node * ran(struct node * current){
-
+	srand(time(NULL));
+	x = rand();
 }
 
 struct node * rem(struct node * current, char art, char son){
