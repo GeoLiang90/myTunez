@@ -4,10 +4,10 @@
 struct node { 
 	char artist[100];
 	char song[100];
-  	struct song_node *next;
+  	struct node *next;
 };
 
-struct node * insert_front(struct node * current, char art, char son);
+struct node * insert_front(struct node * current, char * art, char * son);
 
 struct node * insert(struct node * current, char art, char son);
 
