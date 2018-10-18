@@ -4,7 +4,7 @@
 #include "linkedlist.h"
 
 int main(){
-	struct node * first = malloc(sizeof(struct node)) ;
+	struct node * first;
 
 	first = insert_front(first, "pearl jam", "e");
 	first = insert_front(first, "pink floyd", "d");
@@ -12,16 +12,16 @@ int main(){
 
 	print_list(first);
 
-	struct node * test = malloc(sizeof(struct node));
+	struct node * test;
 	test = insert(test, "pink floyd", "d");
-
+	/*
 	test = insert(test, "pink floyd", "a");
 	test = insert(test, "pink floyd", "b");
 	test = insert(test, "pink floyd", "z");
 	test = insert(test, "ed sheeran", "blah");
 	test = insert(test, "genki", "blarg");
 	test = insert(test, "zedd", "blerg");
-
+*/
 	print_list(test);
 	
 	/*
