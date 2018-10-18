@@ -19,19 +19,16 @@ struct node * insert(struct node * current, char * art, char * son){
 	struct node * new = (struct node *) malloc(sizeof(struct node));
 	strcpy(new->artist, art);
 	strcpy(new->song, son);
+  //printf("%s: %s \n", new->artist, new->song);
   //If there is no list yet
   if(!current){
     return new;
   }
-/*
   struct node * prev = current;
 	struct node * curr = current;
-
 	while(curr){
-
 		int x = strcmp(curr -> artist, art);
 		int y = strcmp(curr -> song, son);
-
     //printf("%d", x);
 		if (x == 0 && y > 0){
 			new -> next = curr;
@@ -55,13 +52,11 @@ struct node * insert(struct node * current, char * art, char * son){
         //printf("%s", curr->song);
         return current;
       }
-
       if (prev != curr){
         prev = curr;
       }
 			curr = curr -> next;
 		}
-
     //If the inserting artist greater
     if (x < 0){
       //If we are the last node and our inserting song greater
@@ -71,13 +66,11 @@ struct node * insert(struct node * current, char * art, char * son){
         //printf("%s", curr->song);
         return current;
       }
-
       if (prev != curr){
         prev = curr;
       }
 			curr = curr -> next;
     }
-
     //If the insertion artist is less
     if (x > 0){
       new -> next = curr;
@@ -91,18 +84,14 @@ struct node * insert(struct node * current, char * art, char * son){
         //We become the first element in this case
       }
     }
-
 	}
-*/
 }
 
 void print_list(struct node * current){
   if(!current){
     return;
   }
-
   printf("%s: %s |\n", current->artist, current->song);
-
   if(current->next){
     print_list(current->next);
   }
@@ -144,9 +133,9 @@ struct node * rem(struct node * current, char * art, char * son){
   struct node * curr = current;
   while(curr){
     if(!strcmp(curr->artist, art) && !strcmp(curr->song, son)){
-	if(curr == prev){
-		return NULL;
-	}
+  	if(curr == prev){
+  		return NULL;
+  	}
       free(curr);
     }
     else
