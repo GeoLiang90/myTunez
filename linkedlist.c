@@ -12,7 +12,7 @@ struct node * insert_front(struct node * current, char * art, char * son){
   return new;
 }
 
-struct node * insert(struct node * current, char art, char son){
+struct node * insert(struct node * current, char * art, char * son){
 	struct node * new = (struct node *) malloc(sizeof(struct node));
 	strcpy(new->artist, art);
 	strcpy(new->song, son);
@@ -26,12 +26,12 @@ struct node * insert(struct node * current, char art, char son){
 		if (x == 0 && y > 0){
 			new -> next = curr;
 			return new;
-		} 
+		}
 		if (x == 0 && y < 0){
 			curr = curr -> next;
 		}
-		if ( 
-		
+
+
 	}
 }
 
@@ -39,26 +39,47 @@ void print_list(struct node * current){
   if(!current)
     return;
   while(current->next){
-    printf("%s: %s |\n ", current->artist, current->song);
+    printf("%s: %s |\n", current->artist, current->song);
     current = current->next;
   }
 }
+
+struct node * find(struct node * current, char * art, char * son){
+  if(!current)
+    return NULL;
+  while(current->next){
+    if(!strcmp(current->artist, art) && !strcmp(current->artist, art))
+      return current;
+    else
+      current = current->next;
+  }
+}
+
+struct node * find_first(struct node * current, char * art){
+  if(!current)
+    return NULL;
+  while(current->next){
+    if(!strcmp(current->artist, art))
+      return current;
+    else
+      current = current->next;
+  }
+}
 /*
-struct node * find(struct node * current, char art, char son){
-
-}
-
-struct node * find_first(struct node * current, char art, char son){
-
-}
-
 struct node * ran(struct node * current){
 	srand(time(NULL));
 	x = rand();
 }
 
-struct node * rem(struct node * current, char art, char son){
-
+struct node * rem(struct node * current, char * art, char * son){
+  if(!current)
+    return NULL;
+  while(current->next){
+    if(!strcmp(current->artist, art) && !strcmp(current->artist, art))
+      free(current);
+    else
+      current = current->next;
+    }
 }
 */
 struct node * free_list(struct node * current){
