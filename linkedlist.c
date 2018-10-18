@@ -102,45 +102,63 @@ struct node * find(struct node * current, char * art, char * son){
   if(!current){
     return NULL;
   }
-  while(current->next){
-    if(!strcmp(current->artist, art) && !strcmp(current->artist, art))
+  while(current){
+    if((!strcmp(current->artist, art)) && (!strcmp(current->song, son))){
       return current;
-    else
-      current = current->next;
+    }
+    current = current->next;
   }
 }
 
 struct node * find_first(struct node * current, char * art){
   if(!current)
     return NULL;
-  while(current->next){
+  while(current){
     if(!strcmp(current->artist, art))
       return current;
     else
       current = current->next;
   }
 }
-/*
+
 struct node * ran(struct node * current){
-	srand(time(NULL));
-	x = rand();
-}
-*/
-struct node * rem(struct node * current, char * art, char * son){
-  if(!current)
-    return NULL;
-  struct node * prev = current;
   struct node * curr = current;
+  int len = 0;
+	while(current){
+		len++;
+		current = current->next;
+	}
+	srand(time(NULL));
+  int x;
+	x = rand() % len;
+  while(x){
+    curr = curr->next;
+    x--;
+  }
+  return curr;
+}
+
+struct node * rem(struct node * current, char * art, char * son){
+  struct node * curr = current;
+  struct node * tar = find(current, art, son);
   while(curr){
-    if(!strcmp(curr->artist, art) && !strcmp(curr->song, son)){
-  	if(curr == prev){
-  		return NULL;
-  	}
-      free(curr);
+    if(curr == tar){
+      curr = tar->next;
+      free(tar);
+      return curr;
+    }
+    else if(!curr->next){
+      return current;
+    }
+    else if(curr->next == tar){
+      curr->next = tar->next;
+      free(tar);
+      return curr;
     }
     else
-      current = current->next;
-    }
+      curr = curr->next;
+  }
+  return current;
 }
 
 struct node * free_list(struct node * current){

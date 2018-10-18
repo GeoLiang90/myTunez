@@ -17,12 +17,26 @@ int main(){
 
 	printf("testing insert \n");
 	first = insert(first, "pearl jam", "k");
-
-	first = insert(first, "pink floyd", "d");
-/*
-	first = insert(first, "pink floyd", "a");
-*/
+	first = insert(first, "pearl jam", "j");
 	print_list(first);
+	printf("\n");
+
+	printf("testing find \n");
+	print_list(find(first, "pearl jam", "k"));
+	printf("\n");
+	printf("testing find_first \n");
+	print_list(find_first(first, "pearl jam"));
+	printf("\n");
+
+	printf("testing random \n");
+	print_list(ran(first));
+	printf("\n");
+
+	printf("testing remove \n");
+	first = rem(first, "pearl jam", "j");
+	print_list(first);
+
+
 /*
 	first = insert(first, "pink floyd", "l");
 	first = insert(first, "pink floyd", "b");
@@ -33,11 +47,7 @@ int main(){
 
 	print_list(first);
 */
-	/*
-	if(find(first, "pink floyd", "d"))
-		printf("found pink floyd: d \n");
-	if(!strcmp(find_first(first, "pink floyd")->song,"a"))
-		printf("found first song of pink floyd: %s \n", find_first(first, "pink floyd")->song);
-	*/
+
+
 	return 0;
 }
