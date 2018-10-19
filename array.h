@@ -16,7 +16,7 @@ void print_lib();
 
 void shuffle();
 
-struct node * delete(struct node * son);
+struct node * delete(char * art, char * son);
 
 void clear();
 

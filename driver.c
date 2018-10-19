@@ -72,6 +72,26 @@ int main(){
 	print_letter('m');
 	printf("\n");
 
+	printf("testing print_songs \n");
+	print_songs("miley cyrus");
+	printf("\n");
+
+	printf("testing print_lib \n");
+	print_lib();
+	printf("\n");
+
+	printf("testing shuffle \n");
+	shuffle();
+	printf("\n");
+
+	printf("testing delete \n");
+	delete("lady gaga", "pokerface");
+	print_lib();
+	printf("\n");
+
+	printf("testing clear \n");
+	clear();
+	printf("\n");
 
 	return 0;
 }
