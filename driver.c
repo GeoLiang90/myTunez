@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "linkedlist.h"
+#include "array.h"
 
 int main(){
+	//-----------------LINKED LIST-------------------
+	printf("TESTING LINKED LIST \n \n");
 	struct node * first;
 
 	printf("testing insert_front \n");
@@ -35,6 +38,7 @@ int main(){
 	printf("testing remove \n");
 	first = rem(first, "pearl jam", "j");
 	print_list(first);
+	printf("\n");
 
 
 /*
@@ -47,6 +51,26 @@ int main(){
 
 	print_list(first);
 */
+	free_list(first);
+	//-----------------ARRAY-------------------
+	printf("TESTING LIBRARY \n \n");
+	add("smash mouth", "all star");
+	add("lady gaga", "pokerface");
+	add("miley cyrus", "the climb");
+	add("miley cyrus", "butterfly fly away");
+	add("mickey mouse", "mickey mouse clubhouse");
+
+	printf("testing search \n");
+	printf("looking for lady gaga: pokerface... %s \n", search("lady gaga", "pokerface")->song);
+	printf("\n");
+
+	printf("testing search_artist \n");
+	printf("looking for miley cyrus... %s \n", search_artist("miley cyrus")->artist);
+	printf("\n");
+
+	printf("testing print_letter \n");
+	print_letter('m');
+	printf("\n");
 
 
 	return 0;
