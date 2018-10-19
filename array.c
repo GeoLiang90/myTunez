@@ -49,19 +49,24 @@ void print_lib(){
 }
 
 void shuffle(){
-  struct node * y;
-  struct node * son;
   srand(time(NULL));
-  int x =(int) rand() % 26;
-  son = ran(lib[x]);
-  y = insert(y,son -> artist,son ->song);
+  struct node * y;
+  struct node * randomNod;
+  int x =(int) (rand() % 26);
+  int g = (int) (rand() & 26);
 
-  for (int i = 0; i < 4; i++){
-    int z = (int)rand() % 26;
-    son = ran(lib[z]);
-    y = insert(y,son -> artist, son ->song);
+  while(!lib[x]){
+    x =(int) (rand() % 26);
   }
-  print_list(y);
+  randomNod = ran(lib[x]);
+  while(!randomNod){
+    randomNod = ran(lib[x]);
+  }
+  printf("%s: %s |\n", randomNod->artist, randomNod->song);
+
+  if (randomNod -> next){
+    printf("%s: %s |\n", randomNod-> next -> artist, randomNod-> next ->song);
+  }
 }
 
 struct node * delete(char * art, char * son){
